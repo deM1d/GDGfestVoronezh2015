@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<idemidov.com.gdgvrn2015.widget.GdgLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <idemidov.com.gdgvrn2015.widget.GdgView
+        android:id="@+id/gdg_id1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <idemidov.com.gdgvrn2015.widget.GdgView
+        android:id="@+id/gdg_id2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <idemidov.com.gdgvrn2015.widget.GdgView
+        android:id="@+id/gdg_id3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <idemidov.com.gdgvrn2015.widget.GdgableTextView
+        android:id="@+id/gdg_id4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <idemidov.com.gdgvrn2015.widget.GdgView
+        android:id="@+id/gdg_id5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Testable EditText"
+        android:textSize="20sp"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <SeekBar
+        android:layout_width="200dp"
+        android:layout_height="wrap_content" />
+
+</idemidov.com.gdgvrn2015.widget.GdgLayout>
