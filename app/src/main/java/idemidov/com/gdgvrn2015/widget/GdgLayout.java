@@ -44,7 +44,7 @@ public class GdgLayout extends ViewGroup {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.rgb(0xdb, 0xdc, 0xff));
+        canvas.drawColor(Color.rgb(0x42, 0xaa, 0xff));
     }
 
     @Override
