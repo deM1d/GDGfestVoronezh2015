@@ -97,8 +97,8 @@ public class GdgLayout extends ViewGroup {
         for (int i = 0; i < count; i++) {
             View child = getChildAt(i);
             int lc = (int) (childLeft + elapse);
-            if (lc + child.getMeasuredWidth() > getMeasuredWidth()) {
-                lc = getMeasuredWidth() - child.getMeasuredWidth();
+            if (lc + child.getMeasuredWidth() > (r - l)) {
+                lc = (r - l) - child.getMeasuredWidth();
             } else if (lc < 0) {
                 lc = 0;
             }
