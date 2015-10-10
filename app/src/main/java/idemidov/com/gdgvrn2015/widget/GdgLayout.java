@@ -1,5 +1,6 @@
 package idemidov.com.gdgvrn2015.widget;
 
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,6 +11,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 /**
  * Created by Ilya on 03/10/2015.
@@ -20,6 +22,8 @@ public class GdgLayout extends ViewGroup {
     private float downX;
     private float lastX = -1;
     private float elapse = 0;
+
+    private int bgColor;
 
     public GdgLayout(Context context) {
         super(context);
@@ -44,7 +48,7 @@ public class GdgLayout extends ViewGroup {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.rgb(0x42, 0xaa, 0xff));
+        canvas.drawColor(bgColor);
     }
 
     @Override
@@ -126,10 +130,13 @@ public class GdgLayout extends ViewGroup {
         switch (event.getAction()) {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
+                requestDisallowInterceptTouchEvent(false);
                 lastX = -1;
+                startAnim();
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (lastX == -1) {
+                    requestDisallowInterceptTouchEvent(true);
                     lastX = event.getX();
                 }
                 performChildrenColoring(event);
@@ -138,6 +145,30 @@ public class GdgLayout extends ViewGroup {
                 break;
         }
         return true;
+    }
+
+    public void setBackgroundColor(int color) {
+        this.bgColor = color;
+        invalidate();
+    }
+
+    private void startAnim() {
+        ValueAnimator animator;
+        if (elapse > 0) {
+            animator = ValueAnimator.ofFloat(elapse, getMeasuredWidth());
+        } else {
+            animator = ValueAnimator.ofFloat(elapse, -getMeasuredWidth());
+        }
+        animator.setDuration(400);
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                elapse = (float) animation.getAnimatedValue();
+                requestLayout();
+            }
+        });
+        animator.start();
     }
 
     private void performChildrenColoring(MotionEvent event) {
@@ -154,7 +185,7 @@ public class GdgLayout extends ViewGroup {
     }
 
     private void performChildrenMoving(MotionEvent event) {
-        elapse += event.getX() - lastX;
+        elapse += (event.getX() - lastX) * 2;
         requestLayout();
     }
 
@@ -162,6 +193,7 @@ public class GdgLayout extends ViewGroup {
         setWillNotDraw(false);
         ViewConfiguration configuration = ViewConfiguration.get(getContext());
         touchSlop = configuration.getScaledTouchSlop();
+        bgColor = Color.rgb(0x42, 0xaa, 0xff);
     }
 
     private void measureViews(int widthMeasureSpec, int heightMeasureSpec) {

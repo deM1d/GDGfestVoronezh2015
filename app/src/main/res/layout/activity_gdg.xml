@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <idemidov.com.gdgvrn2015.widget.GdgLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gdg_group1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
@@ -17,19 +18,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <idemidov.com.gdgvrn2015.widget.GdgView
-        android:id="@+id/gdg_id2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <idemidov.com.gdgvrn2015.widget.GdgView
-        android:id="@+id/gdg_id3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <ImageView
         android:layout_width="75dp"
         android:layout_height="50dp"
         android:src="@drawable/gdg"/>
+
+    <idemidov.com.gdgvrn2015.widget.GdgLayout
+        android:id="@+id/gdg_group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:src="@drawable/gdg"/>
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="50dp"
+            android:src="@drawable/gdg"/>
+
+    </idemidov.com.gdgvrn2015.widget.GdgLayout>
 
 </idemidov.com.gdgvrn2015.widget.GdgLayout>

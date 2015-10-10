@@ -1,8 +1,10 @@
 package idemidov.com.gdgvrn2015.activity;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import idemidov.com.gdgvrn2015.R;
+import idemidov.com.gdgvrn2015.widget.GdgLayout;
 import idemidov.com.gdgvrn2015.widget.GdgView;
 import idemidov.com.gdgvrn2015.widget.GdgableTextView;
 
@@ -22,12 +24,13 @@ public class GdgActivity extends Activity {
     private void initView() {
         GdgableTextView textView = (GdgableTextView) findViewById(R.id.gdg_tv);
         GdgView view1 = (GdgView) findViewById(R.id.gdg_id1);
-        GdgView view2 = (GdgView) findViewById(R.id.gdg_id2);
-        GdgView view3 = (GdgView) findViewById(R.id.gdg_id3);
 
-        textView.setText("HELLO");
-        view1.setText("GDG");
-        view2.setText("VRN");
-        view3.setText("2015");
+        textView.setText("GDG");
+        view1.setText("VRN");
+
+        GdgLayout l1 = (GdgLayout) findViewById(R.id.gdg_group1);
+        l1.setBackgroundColor(Color.rgb(0x42, 0xaa, 0xff));
+        GdgLayout l2 = (GdgLayout) findViewById(R.id.gdg_group2);
+        l2.setBackgroundColor(Color.rgb(0xff, 0x80, 0xff));
     }
 }
